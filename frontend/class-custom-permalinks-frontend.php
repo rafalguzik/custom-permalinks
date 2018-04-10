@@ -102,8 +102,8 @@ final class Custom_Permalinks_Frontend {
     }
 
     $post_feed = 0;
-    if ( false !== strpos( $request_noslash, '/feed' ) ) {
-      $request_noslash = str_replace( '/feed', '', $request_noslash );
+    if ( preg_match("/\/feed$/", $request_noslash) ) {
+      $request_noslash = preg_replace( "/\/feed$/", '', $request_noslash );
       $post_feed = 1;
     }
 
